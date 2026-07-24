@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Landing page responsiva inspirada em Super Mario Bros. - O Filme."
+    />
 
     <link
       rel="shortcut icon"
@@ -28,56 +32,77 @@
   </head>
   <body>
     <div class="fundo-video">
-      <video class="video" autoplay loop muted>
+      <video class="video" autoplay loop muted playsinline>
         <source src="./src/video/video-mario.mp4" type="video/mp4" />
       </video>
     </div>
 
     <header class="cabecalho">
-      <a>
+      <a href="#inicio" aria-label="Ir para o início">
         <img
           class="logo"
           src="./src/imagens/logo-chapeu-mario.png"
-          alt="logo chapéu Mario"
+          alt="Chapéu do Mario"
         />
       </a>
       <nav>
         <ul class="menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Detalhes</a></li>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#detalhes">Detalhes</a></li>
         </ul>
       </nav>
     </header>
-    <main class="container">
+    <main class="container" id="inicio">
       <div class="informacoes">
         <img
-          class="imagem-tutulo"
+          class="imagem-titulo"
           src="./src/imagens/titulo.png"
-          alt="imagem do título do filme"
+          alt="Super Mario Bros. - O Filme"
         />
-        <p class="descricao">
+        <p class="descricao" id="detalhes">
           Mario é um encanador junto com seu irmão Luigi. Um dia, eles vão parar
           no reino dos cogumelos, governado pela Princesa Peach, mas ameaçado
           pelo rei dos Koopas, que faz de tudo para conseguir reinar em todos os
           lugares.
         </p>
-        <button class="botao-trailer">Veja o trailer</button>
+        <button class="botao-trailer" type="button" aria-haspopup="dialog">
+          Veja o trailer
+        </button>
       </div>
-      <img class="mario" src="./src/imagens/super-mario-chars.png" />
+      <img
+        class="mario"
+        src="./src/imagens/super-mario-chars.png"
+        alt="Mario, Luigi, Peach e Toad"
+      />
 
-      <div class="modal">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="titulo-modal"
+        aria-hidden="true"
+        inert
+      >
         <div class="conteudo-modal">
-          <span class="fechar-modal">X</span>
-          <iframe
-            id="video"
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/Cb4WV4aXBpk"
-            title="Trailer oficial"
-            frameborder="1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div class="janela-modal">
+            <h2 id="titulo-modal" class="titulo-modal">Trailer oficial</h2>
+            <button
+              class="fechar-modal"
+              type="button"
+              aria-label="Fechar trailer"
+            >
+              &times;
+            </button>
+            <iframe
+              id="video"
+              width="560"
+              height="315"
+              data-src="https://www.youtube.com/embed/Cb4WV4aXBpk"
+              title="Trailer oficial"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </main>
